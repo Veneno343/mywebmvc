@@ -20,6 +20,10 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Autowired
     private ApplicationContext applicationContext;
 
+    /*
+     * Resource handler untuk Webjars
+     * Include Bootstrap + JQuery + etc
+     */
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/");
     }

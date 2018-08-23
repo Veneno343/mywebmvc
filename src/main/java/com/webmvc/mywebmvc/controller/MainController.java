@@ -12,4 +12,9 @@ public class MainController {
         model.addAttribute("behavior","Programmer");
         return "index";
     }
+
+    @GetMapping("/add")
+    public String add(Model model) {
+        return "empview/add";
+    }
 }
