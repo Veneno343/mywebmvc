@@ -22,8 +22,8 @@ public class WebDBConfig {
         return new EmbeddedDatabaseBuilder()
                 .setName("testDB")
                 .setType(EmbeddedDatabaseType.H2)
-                .addDefaultScripts()
                 .setScriptEncoding("UTF-8")
+                .addScripts("schema.sql","data.sql")
                 .ignoreFailedDrops(true)
                 .build();
     }

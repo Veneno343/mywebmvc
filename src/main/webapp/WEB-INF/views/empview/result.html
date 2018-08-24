@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="../fragments/layout::headerSource"></th:block>
+</head>
+<body>
+<th:block th:insert="../fragments/layout::headerNav">
+</th:block>
+
+<div class="container-fluid" style="margin-top: 80px;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Test Result</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>City</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="employee : ${employee}">
+                        <td><p th:text="${employee.id}"></p></td>
+                        <td><p th:text="${employee.name}"></p></td>
+                        <td><p th:text="${employee.age}"></p></td>
+                        <td><p th:text="${employee.city}"></p></td>
+                        <td><p th:text="${employee.country}"></p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div th:insert="../fragments/layout::footer">
+</div>
+</body>
+</html>

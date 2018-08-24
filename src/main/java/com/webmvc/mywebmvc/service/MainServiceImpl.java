@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /*
 *  implementasikan semua method kontrak dari MainService
 *
@@ -18,7 +22,6 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public void save(Employee e) {
-
     }
 
     @Override
@@ -41,10 +44,34 @@ public class MainServiceImpl implements MainService {
 
     }
 
+
     @Override
     public Employee read(int id) {
 
         final String sql = "select * from my_table where id = " + id;
         return  jdbcTemplate.queryForObject(sql, Employee.class);
+    }
+
+    @Override
+    public List<Employee> readAll() {
+
+        final String sql = "SELECT * FROM Employee";
+        List<Employee> employees = new ArrayList<Employee>();
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+
+        for (Map row : rows) {
+            Employee employee = new Employee();
+
+            employee.setId((Integer)(row.get("id")));
+            employee.setName((String)(row.get("name")));
+            employee.setAge((Integer) (row.get("age")));
+            employee.setCity((String)(row.get("city")));
+            employee.setCountry((String)(row.get("country")));
+
+            employees.add(employee);
+        }
+
+        return employees;
     }
 }

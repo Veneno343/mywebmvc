@@ -2,6 +2,9 @@ package com.webmvc.mywebmvc.service;
 
 import com.webmvc.mywebmvc.model.Employee;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 *  base service untuk crud
 *
@@ -19,4 +22,6 @@ public interface MainService {
     void delete(int id);
 
     Employee read(int id);
+
+    List<Employee> readAll();
 }

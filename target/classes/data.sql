@@ -1,0 +1,1 @@
+INSERT INTO Employee VALUES(1,'John',19,'Bandung','Indonesia'),(2,'Ethan',20,'Jakarta','Indonesia')
