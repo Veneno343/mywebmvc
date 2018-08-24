@@ -10,6 +10,8 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import javax.naming.Name;
 import javax.sql.DataSource;
 
+import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.H2;
+
 @Configuration
 public class WebDBConfig {
 
@@ -19,6 +21,7 @@ public class WebDBConfig {
      */
     @Bean
     public DataSource datasource() {
+
         return new EmbeddedDatabaseBuilder()
                 .setName("testDB")
                 .setType(EmbeddedDatabaseType.H2)

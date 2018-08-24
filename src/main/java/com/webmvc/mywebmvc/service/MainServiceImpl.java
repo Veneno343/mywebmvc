@@ -22,6 +22,8 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public void save(Employee e) {
+        final String sql = "INSERT INTO Employee VALUES (?,?,?,?,?)";
+        jdbcTemplate.update(sql,new Object[]{e.getId(),e.getName(),e.getAge(),e.getCity(),e.getCountry()});
     }
 
     @Override

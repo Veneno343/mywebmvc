@@ -21,13 +21,6 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/report")
-    public String report(Model model) {
-        model.addAttribute("employee",mainService.readAll());
-
-        return "empview/result";
-    }
-
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("employee",new Employee());
@@ -36,8 +29,15 @@ public class MainController {
     }
 
     @PostMapping("/add")
-    public String add(Employee employee) {
+    public String save(Employee employee) {
         mainService.save(employee);
+
+        return "index";
+    }
+
+    @GetMapping("/report")
+    public String report(Model model) {
+        model.addAttribute("employee",mainService.readAll());
 
         return "empview/result";
     }
