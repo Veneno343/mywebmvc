@@ -2,9 +2,13 @@ package com.webmvc.mywebmvc.service;
 
 import com.webmvc.mywebmvc.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +32,8 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public void save(int id) {
-
+        final String sql = "UPDATE Employee SET id = ?,name = ?,age = ?,city = ?,country = ? WHERE id = ?";
+        jdbcTemplate.update(sql);
     }
 
     @Override
@@ -43,15 +48,16 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public void delete(int id) {
-
+        final String sql = "DELETE FROM Employee WHERE id = ?";
+        jdbcTemplate.update(sql,id);
     }
 
 
     @Override
     public Employee read(int id) {
 
-        final String sql = "select * from my_table where id = " + id;
-        return  jdbcTemplate.queryForObject(sql, Employee.class);
+        final String sql = "SELECT * FROM Employee WHERE id = " + id;
+        return jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Employee.class));
     }
 
     @Override

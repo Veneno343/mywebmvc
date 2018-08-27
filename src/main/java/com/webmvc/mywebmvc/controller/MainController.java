@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -32,7 +34,26 @@ public class MainController {
     public String save(Employee employee) {
         mainService.save(employee);
 
-        return "index";
+        return "redirect:/report";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable int id,Model model) {
+        model.addAttribute("employee",mainService.read(id));
+
+        return "empview/edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String edit(@PathVariable int id, Employee employee) {
+        mainService.save(id);
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable int id) {
+        mainService.delete(id);
+
+        return "redirect:/report";
     }
 
     @GetMapping("/report")

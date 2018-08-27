@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="../fragments/layout::headerSource"></th:block>
+</head>
+<body>
+<th:block th:insert="../fragments/layout::headerNav">
+</th:block>
+
+<div class="container" style="margin-top : 80px;">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="#" th:action="@{/edit}" th:object="${employee}" method="post">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" th:field="*{id}" placeholder="Put your identity number here">
+                </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" th:field="*{name}" placeholder="Surname and Forename">
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="text" class="form-control" th:field="*{age}" placeholder="Your age">
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" class="form-control" th:field="*{city}" placeholder="City where you living">
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <select th:field="*{country}" class="form-control">
+                        <option th:value="None">- Select Country -</option>
+                        <option th:value="Indonesia">Indonesia</option>
+                        <option th:value="Australia">Australia</option>
+                        <option th:value="US">United States</option>
+                        <option th:value="UK">United Kingdom</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="form-control btn btn-primary" value="Send">
+                    <input type="reset" class="form-control btn btn-dark" value="Reset">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6"><img src="https://enesaltinkaya.com/img/spring.png" alt="" width="100%" height="100%"></div>
+    </div>
+</div>
+
+<div th:insert="../fragments/layout::footer">
+</div>
+</body>
+</html>
