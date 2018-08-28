@@ -1,1 +1,1 @@
-INSERT INTO Employee VALUES(1,'John',19,'Bandung','Indonesia'),(2,'Ethan',20,'Jakarta','Indonesia')
+INSERT INTO Employee(name,age,city,country) VALUES('John',19,'Bandung','Indonesia'),('Ethan',20,'Jakarta','Indonesia'),('Edward',20,'Surabaya','Indonesia')

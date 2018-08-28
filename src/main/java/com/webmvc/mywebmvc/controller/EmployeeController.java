@@ -1,20 +1,17 @@
 package com.webmvc.mywebmvc.controller;
 
 import com.webmvc.mywebmvc.model.Employee;
-import com.webmvc.mywebmvc.service.MainService;
+import com.webmvc.mywebmvc.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class MainController {
+public class EmployeeController {
 
     @Autowired
-    private MainService mainService;
+    private IEmployeeService IEmployeeService;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -27,38 +24,37 @@ public class MainController {
     public String add(Model model) {
         model.addAttribute("employee",new Employee());
 
-        return "empview/add";
-    }
-
-    @PostMapping("/add")
-    public String save(Employee employee) {
-        mainService.save(employee);
-
-        return "redirect:/report";
+        return "empview/manage";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable int id,Model model) {
-        model.addAttribute("employee",mainService.read(id));
+        model.addAttribute("employee", IEmployeeService.read(id));
 
-        return "empview/edit";
+        return "empview/manage";
     }
 
-    @PostMapping("/edit/{id}")
-    public String edit(@PathVariable int id, Employee employee) {
-        mainService.save(id);
+    @PostMapping("/save")
+    public String save(Employee employee) {
+        if((employee != null) && (employee.getId() != null)) {
+            IEmployeeService.update(employee);
+        } else {
+            IEmployeeService.save(employee);
+        }
+
+        return "redirect:/report";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id) {
-        mainService.delete(id);
+        IEmployeeService.delete(id);
 
         return "redirect:/report";
     }
 
     @GetMapping("/report")
     public String report(Model model) {
-        model.addAttribute("employee",mainService.readAll());
+        model.addAttribute("employee", IEmployeeService.readAll());
 
         return "empview/result";
     }

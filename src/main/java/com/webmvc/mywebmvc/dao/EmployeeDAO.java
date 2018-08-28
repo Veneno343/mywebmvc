@@ -1,39 +1,42 @@
-package com.webmvc.mywebmvc.service;
+package com.webmvc.mywebmvc.dao;
 
 import com.webmvc.mywebmvc.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/*
-*  implementasikan semua method kontrak dari MainService
-*
-* */
 
-@Service
-public class MainServiceImpl implements MainService {
+/*
+ * Class implementasi dari Interface IEmployeeDAO
+ * Handle operasi-operasi Database
+ *
+ */
+@Repository
+public class EmployeeDAO implements IEmployeeDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
     public void save(Employee e) {
-        final String sql = "INSERT INTO Employee VALUES (?,?,?,?,?)";
-        jdbcTemplate.update(sql,new Object[]{e.getId(),e.getName(),e.getAge(),e.getCity(),e.getCountry()});
+        final String sql = "INSERT INTO Employee(name,age,city,country) VALUES (?,?,?,?)";
+        jdbcTemplate.update(sql,new Object[]{e.getName(),e.getAge(),e.getCity(),e.getCountry()});
     }
 
     @Override
-    public void save(int id) {
-        final String sql = "UPDATE Employee SET id = ?,name = ?,age = ?,city = ?,country = ? WHERE id = ?";
-        jdbcTemplate.update(sql);
+    public void save(Integer id) {
+
+    }
+
+    @Override
+    public void update(Employee e) {
+        final String sql = "UPDATE Employee SET name = ?,age = ?,city = ?,country = ? WHERE id = ?";
+        jdbcTemplate.update(sql,new Object[] {e.getName(),e.getAge(),e.getCity(),e.getCountry(),e.getId()} );
     }
 
     @Override
@@ -47,14 +50,14 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Integer id) {
         final String sql = "DELETE FROM Employee WHERE id = ?";
         jdbcTemplate.update(sql,id);
     }
 
 
     @Override
-    public Employee read(int id) {
+    public Employee read(Integer id) {
 
         final String sql = "SELECT * FROM Employee WHERE id = " + id;
         return jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Employee.class));

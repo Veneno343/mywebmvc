@@ -6,22 +6,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-*  base service untuk crud
+*  Base Service untuk aplikasi
 *
 * */
-public interface MainService {
+public interface IEmployeeService {
 
     void save(Employee e);
 
-    void save(int id);
+    void save(Integer id);
+
+    void update(Employee e);
 
     Employee create(Employee e);
 
     void delete(Employee e);
 
-    void delete(int id);
+    void delete(Integer id);
 
-    Employee read(int id);
+    Employee read(Integer id);
 
-    List<Employee> readAll();
+    List readAll();
 }

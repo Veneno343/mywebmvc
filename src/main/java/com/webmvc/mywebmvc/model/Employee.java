@@ -1,17 +1,23 @@
 package com.webmvc.mywebmvc.model;
 
+import javax.annotation.Generated;
+
+/*
+ * Base class untuk model Employee
+ */
 public class Employee {
-    private int id;
+
+    private Integer id;
     private String name;
-    private int age;
+    private Integer age;
     private String city;
     private String country;
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -23,11 +29,11 @@ public class Employee {
         return name;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
