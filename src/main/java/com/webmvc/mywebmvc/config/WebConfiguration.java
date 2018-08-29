@@ -2,9 +2,13 @@ package com.webmvc.mywebmvc.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
@@ -52,29 +56,32 @@ public class WebConfiguration implements WebMvcConfigurer {
         return templateEngine;
     }
 	
-	/*
+
 	
-	 @Override
-    public Validator getValidator() {
+	@Bean
+    public LocalValidatorFactoryBean validator() {
         LocalValidatorFactoryBean factoryBean = new LocalValidatorFactoryBean();
         factoryBean.setValidationMessageSource(messageSource());
 
         return factoryBean;
     }
 
-    @Bean(name = "messageSource")
+    @Bean
     public MessageSource messageSource()
     {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename(MESSAGE_SOURCE);
+        messageSource.setBasename("classpath:message");
+        messageSource.setDefaultEncoding("UTF-8");
         messageSource.setCacheSeconds(5);
 
         return messageSource;
     }
-	
-	
-	*/
-	
+
+    @Override
+    public Validator getValidator() {
+
+        return validator();
+    }
 
 
     public void configureViewResolvers(ViewResolverRegistry registry) {
@@ -82,4 +89,5 @@ public class WebConfiguration implements WebMvcConfigurer {
         resolver.setTemplateEngine(springTemplateEngine());
         registry.viewResolver(resolver);
     }
+
 }
