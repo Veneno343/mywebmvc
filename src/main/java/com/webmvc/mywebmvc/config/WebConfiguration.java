@@ -1,5 +1,6 @@
 package com.webmvc.mywebmvc.config;
 
+import com.sun.corba.se.spi.resolver.LocalResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
@@ -9,13 +10,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+
+import java.util.Locale;
 
 @Configuration
 @EnableWebMvc
@@ -55,16 +58,17 @@ public class WebConfiguration implements WebMvcConfigurer {
 
         return templateEngine;
     }
-	
 
-	
-	@Bean
-    public LocalValidatorFactoryBean validator() {
-        LocalValidatorFactoryBean factoryBean = new LocalValidatorFactoryBean();
-        factoryBean.setValidationMessageSource(messageSource());
-
-        return factoryBean;
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
+        resolver.setTemplateEngine(springTemplateEngine());
+        registry.viewResolver(resolver);
     }
+
+    /*
+     * Konfigurasi Validator untuk Server-side menggunakan Validator API
+     *
+     */
 
     @Bean
     public MessageSource messageSource()
@@ -77,17 +81,43 @@ public class WebConfiguration implements WebMvcConfigurer {
         return messageSource;
     }
 
+	@Bean
+    public LocalValidatorFactoryBean validator() {
+        LocalValidatorFactoryBean factoryBean = new LocalValidatorFactoryBean();
+        factoryBean.setValidationMessageSource(messageSource());
+
+        return factoryBean;
+    }
+
     @Override
     public Validator getValidator() {
 
         return validator();
     }
 
+    /*
+     * Konfigurasi servlet untuk multi-language support
+     * Resolver untuk localization dan internationalization
+     */
+    @Bean
+    public LocaleResolver localeResolver() {
+        SessionLocaleResolver resolver = new SessionLocaleResolver();
+        resolver.setDefaultLocale(Locale.US);
 
-    public void configureViewResolvers(ViewResolverRegistry registry) {
-        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setTemplateEngine(springTemplateEngine());
-        registry.viewResolver(resolver);
+        return resolver;
+    }
+
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        LocaleChangeInterceptor interceptor =  new LocaleChangeInterceptor();
+        interceptor.setParamName("lang");
+
+        return interceptor;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(localeChangeInterceptor());
     }
 
 }
