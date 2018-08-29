@@ -17,6 +17,11 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @EnableWebMvc
 @ComponentScan("com.webmvc.mywebmvc")
 public class WebConfiguration implements WebMvcConfigurer {
+	
+	
+	//  private static final String MESSAGE_SOURCE = "classpath:/i18n/message";
+	
+	
     @Autowired
     private ApplicationContext applicationContext;
 
@@ -46,6 +51,30 @@ public class WebConfiguration implements WebMvcConfigurer {
 
         return templateEngine;
     }
+	
+	/*
+	
+	 @Override
+    public Validator getValidator() {
+        LocalValidatorFactoryBean factoryBean = new LocalValidatorFactoryBean();
+        factoryBean.setValidationMessageSource(messageSource());
+
+        return factoryBean;
+    }
+
+    @Bean(name = "messageSource")
+    public MessageSource messageSource()
+    {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename(MESSAGE_SOURCE);
+        messageSource.setCacheSeconds(5);
+
+        return messageSource;
+    }
+	
+	
+	*/
+	
 
 
     public void configureViewResolvers(ViewResolverRegistry registry) {
