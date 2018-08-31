@@ -1,6 +1,7 @@
 package com.webmvc.mywebmvc.controller;
 
 import com.webmvc.mywebmvc.model.Employee;
+import com.webmvc.mywebmvc.model.Users;
 import com.webmvc.mywebmvc.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -22,6 +23,12 @@ public class EmployeeController {
         model.addAttribute("person","Jonathan!");
         model.addAttribute("behavior","Programmer");
         return "index";
+    }
+
+    @GetMapping("/login")
+    public String login(Model model, Users users) {
+        model.addAttribute("users",users);
+        return "login";
     }
 
     @GetMapping("/add")
@@ -65,5 +72,11 @@ public class EmployeeController {
         model.addAttribute("employee", IEmployeeService.readAll());
 
         return "empview/result";
+    }
+
+    @GetMapping("/403")
+    public String denied(Model model) {
+
+        return "403";
     }
 }

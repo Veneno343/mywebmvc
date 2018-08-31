@@ -1,5 +1,7 @@
 package com.webmvc.mywebmvc.config;
 
+import org.h2.jdbc.JdbcConnection;
+import org.h2.jdbcx.JdbcDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,16 +23,24 @@ public class WebDBConfig {
      */
     @Bean
     public DataSource datasource() {
+        JdbcDataSource dataSource = new JdbcDataSource();
 
+        dataSource.setURL("jdbc:h2:tcp://localhost/~/testdb");
+        dataSource.setUser("sa");
+        dataSource.setPassword("");
+
+        return dataSource;
+
+        /* Untuk Embedded Database
         return new EmbeddedDatabaseBuilder()
-                .setName("testDB")
-                .setType(EmbeddedDatabaseType.H2)
+                .setName("testdb;MODE=MySQL;DB_CLOSE_ON_EXIT=false")
+                .setType(H2)
                 .setScriptEncoding("UTF-8")
                 .addScripts("schema.sql","data.sql")
                 .ignoreFailedDrops(true)
                 .build();
+        */
     }
-
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);

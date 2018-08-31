@@ -1,4 +1,6 @@
 com\webmvc\mywebmvc\model\Employee.class
+com\webmvc\mywebmvc\model\Users.class
+com\webmvc\mywebmvc\config\WebSecurityInitializer.class
 com\webmvc\mywebmvc\service\EmployeeService.class
 com\webmvc\mywebmvc\dao\IEmployeeDAO.class
 com\webmvc\mywebmvc\config\WebDBConfig.class
@@ -6,4 +8,5 @@ com\webmvc\mywebmvc\config\WebInitializer.class
 com\webmvc\mywebmvc\controller\EmployeeController.class
 com\webmvc\mywebmvc\dao\EmployeeDAO.class
 com\webmvc\mywebmvc\config\WebConfiguration.class
+com\webmvc\mywebmvc\config\WebSecurityConfig.class
 com\webmvc\mywebmvc\service\IEmployeeService.class
