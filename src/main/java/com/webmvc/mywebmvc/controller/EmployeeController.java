@@ -3,6 +3,7 @@ package com.webmvc.mywebmvc.controller;
 import com.webmvc.mywebmvc.model.Employee;
 import com.webmvc.mywebmvc.model.Users;
 import com.webmvc.mywebmvc.service.IEmployeeService;
+import com.webmvc.mywebmvc.service.IUsersService;
 import org.h2.engine.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -24,6 +25,9 @@ public class EmployeeController {
 
     @Autowired
     private IEmployeeService IEmployeeService;
+
+    @Autowired
+    private IUsersService IUsersService;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -51,11 +55,22 @@ public class EmployeeController {
         return "login";
     }
 
-    @PostMapping("/login")
-    public String login(Model model,Users users) {
-        model.addAttribute("password",users.getPassword());
+    @GetMapping("/signup")
+    public String signup(Model model) {
+        model.addAttribute("users",new Users());
 
-        return "login";
+        return "signup";
+    }
+
+    @PostMapping("/signup")
+    public String signup(@Valid Users users,BindingResult result) {
+        if(result.hasErrors()) {
+            return "signup";
+        } else {
+            IUsersService.save(users);
+            return "redirect:/index";
+        }
+
     }
 
     @GetMapping("/logout")
