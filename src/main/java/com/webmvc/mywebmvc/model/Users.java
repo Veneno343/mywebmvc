@@ -12,11 +12,11 @@ public class Users {
     PasswordEncoder passwordEncoder;
 
     @NotNull
-    @Size(min = 5, max = 25, message = "{message.username.size}")
+    @Size(min = 5, max = 25, message = "Username must be within {min} and {max} characters")
     private String username;
 
     @NotNull
-    @Size(min = 5, max = 50, message = "{message.password.size}")
+    @Size(min = 5, max = 50, message = "Password must be within {min} and {max} characters")
     private String password;
 
     public void setUsername(String username) {
@@ -28,7 +28,7 @@ public class Users {
     }
 
     public void setPassword(String password) {
-        this.password = passwordEncoder.encode(password);
+        this.password = password;
     }
 
     public String getPassword() {

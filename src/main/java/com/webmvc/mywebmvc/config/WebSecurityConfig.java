@@ -21,21 +21,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     DataSource dataSource;
 
+    /*
+     * Authentication Config (InMemory,LPAD,JDBC)
+     */
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("admin").password("admin").authorities("ROLE_ADMIN");
-                /*
+        auth//.inMemoryAuthentication().withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
+
                 .jdbcAuthentication()
                 .dataSource(dataSource)
+                .passwordEncoder(passwordEncoder())
                 .usersByUsernameQuery("SELECT username,password,enabled FROM users WHERE username = ?")
-                .authoritiesByUsernameQuery("SELECT username,role FROM user_roles WHERE username = ?")
-                .passwordEncoder(passwordEncoder());
-                */
+                .authoritiesByUsernameQuery("SELECT username,role FROM user_roles WHERE username = ?");
     }
 
+    /*
+     * Permission Config untuk mengatur secured URL
+     * dan pengaturan autorisasi
+     */
     @Override
     protected void configure(HttpSecurity security) throws Exception {
-        security.authorizeRequests().antMatchers("/add","/report").hasRole("ADMIN")
+        security.authorizeRequests().antMatchers("/add","/edit/{\\d+}","/report").hasRole("ADMIN")
                 .and()
                 .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").permitAll()
                 .and()
@@ -43,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
                 .and()
-                .csrf();
+                .csrf().disable();
     }
 
     @Bean

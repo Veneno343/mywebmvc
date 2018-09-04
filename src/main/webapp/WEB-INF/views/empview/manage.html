@@ -45,6 +45,8 @@
         </div>
         <div class="col-md-6"><img src="https://enesaltinkaya.com/img/spring.png" alt="" width="100%" height="100%"></div>
     </div>
+    <p th:text="'Hello ' + ${username}"></p>
+    <a th:href="@{/logout}" class="btn btn-warning">Logout</a>
 </div>
 
 <div th:insert="../fragments/layout::footer">
