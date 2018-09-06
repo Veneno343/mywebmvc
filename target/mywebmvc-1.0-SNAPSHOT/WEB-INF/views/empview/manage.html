@@ -15,14 +15,17 @@
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" class="form-control" th:field="*{name}" placeholder="Surname and Forename">
+                    <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
                 </div>
                 <div class="form-group">
                     <label>Age</label>
                     <input type="text" class="form-control" th:field="*{age}" placeholder="Your age">
+                    <div class="text-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
                 </div>
                 <div class="form-group">
                     <label>City</label>
                     <input type="text" class="form-control" th:field="*{city}" placeholder="City where you living">
+                    <div class="text-danger" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
                 </div>
                 <div class="form-group">
                     <label>Country</label>
@@ -42,6 +45,8 @@
         </div>
         <div class="col-md-6"><img src="https://enesaltinkaya.com/img/spring.png" alt="" width="100%" height="100%"></div>
     </div>
+    <p th:text="'Hello ' + ${username}"></p>
+    <a th:href="@{/logout}" class="btn btn-warning">Logout</a>
 </div>
 
 <div th:insert="../fragments/layout::footer">

@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <title>My Website</title>
     <link rel="stylesheet" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#local-lang").change(function () {
+                var selectedOption = $('#local-lang').val();
+                if (selectedOption !== ''){
+                    window.location.replace('?lang=' + selectedOption);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <div th:fragment="headerNav">
@@ -12,23 +23,39 @@
             <a href="#" class="navbar-brand">WebInven</a>
         </div>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"><a class="nav-link" th:href="@{/}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" th:href="@{/add}">Manage</a></li>
-            <li class="nav-item"><a class="nav-link" th:href="@{/report}">Report</a></li>
+            <li class="nav-item active"><a class="nav-link" th:href="@{/}" th:text="#{lang.nav.home}"></a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/add}" th:text="#{lang.nav.manage}"></a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/report}" th:text="#{lang.nav.report}"></a></li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/login}" th:text="#{lang.nav.login}"></a></li>
         </ul>
     </nav>
 </div>
 
 <div th:fragment="footer">
-    <div class="footer">
+    <footer class="footer">
         <div class="container">
-            <p class="text-primary">Hello</p>
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <h3 th:text="#{greeting}"></h3>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <label th:text="#{lang.change}"></label>
+                    <select id="local-lang">
+                        <option value=""></option>
+                        <option value="en" th:text="#{lang.en}"></option>
+                        <option value="il" th:text="#{lang.il}"></option>
+                        <option value="in" th:text="#{lang.in}"></option>
+                    </select>
+                </div>
+            </div>
         </div>
-    </div>
+    </footer>
 </div>
-
 </body>
 </html>

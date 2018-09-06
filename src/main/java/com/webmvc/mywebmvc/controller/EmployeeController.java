@@ -103,6 +103,7 @@ public class EmployeeController {
         model.addAttribute("employee", IEmployeeService.read(id));
         model.addAttribute("username",curUser);
 
+
         return "empview/manage";
     }
 
@@ -137,6 +138,17 @@ public class EmployeeController {
 
     @GetMapping("/403")
     public String denied(Model model) {
+        String curUser;
+        String curRole;
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication.isAuthenticated()) {
+            curUser = authentication.getName();
+            curRole = authentication.getAuthorities().toString();
+
+            model.addAttribute("role",curRole);
+            model.addAttribute("username",curUser);
+        }
 
         return "403";
     }

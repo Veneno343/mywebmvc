@@ -13,4 +13,6 @@ C:\Users\User\Desktop\mywebmvc\src\main\java\com\webmvc\mywebmvc\dao\EmployeeDAO
 C:\Users\User\Desktop\mywebmvc\src\main\java\com\webmvc\mywebmvc\controller\EmployeeController.java
 C:\Users\User\Desktop\mywebmvc\src\main\java\com\webmvc\mywebmvc\config\WebSecurityConfig.java
 C:\Users\User\Desktop\mywebmvc\src\main\java\com\webmvc\mywebmvc\config\WebInitializer.java
+C:\Users\User\Desktop\mywebmvc\src\main\java\com\webmvc\mywebmvc\dao\UserRowMapper.java
 C:\Users\User\Desktop\mywebmvc\src\main\java\com\webmvc\mywebmvc\service\UsersService.java
+C:\Users\User\Desktop\mywebmvc\src\main\java\com\webmvc\mywebmvc\service\AuthService.java
