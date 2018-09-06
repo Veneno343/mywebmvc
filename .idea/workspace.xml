@@ -3,34 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="152fa28f-0e41-488a-bd9d-7447d9aa6ce9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/config/WebConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/config/WebConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/config/WebInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/config/WebInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/dao/IUsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/dao/IUsersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/dao/UsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/dao/UsersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/webmvc/mywebmvc/model/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/403.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/config/WebConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/config/WebConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/config/WebInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/config/WebInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/config/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/config/WebSecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/controller/EmployeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/dao/IUsersDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/dao/IUsersDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/dao/UsersDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/dao/UsersDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/model/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/webmvc/mywebmvc/model/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/config/WebConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/config/WebConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/config/WebDBConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/config/WebDBConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/config/WebInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/config/WebInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/controller/EmployeeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/com/webmvc/mywebmvc/model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/classes/message.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/fragments/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/fragments/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/views/empview/manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/mywebmvc-1.0-SNAPSHOT/WEB-INF/views/empview/manage.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -174,7 +146,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="221">
               <caret line="22" column="134" selection-start-line="22" selection-start-column="134" selection-end-line="22" selection-end-column="134" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -519,7 +491,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536216214023" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536218410272" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
@@ -599,12 +571,12 @@
       <workItem from="1535938632383" duration="20427000" />
       <workItem from="1536024768944" duration="16840000" />
       <workItem from="1536111326227" duration="17456000" />
-      <workItem from="1536198209120" duration="10395000" />
+      <workItem from="1536198209120" duration="11136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172364000" />
+    <option name="totallyTimeSpent" value="173105000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1020,7 +992,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="221">
           <caret line="22" column="134" selection-start-line="22" selection-start-column="134" selection-end-line="22" selection-end-column="134" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
