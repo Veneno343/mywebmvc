@@ -4,7 +4,9 @@ import com.webmvc.mywebmvc.model.Employee;
 import com.webmvc.mywebmvc.model.Users;
 import com.webmvc.mywebmvc.service.IEmployeeService;
 import com.webmvc.mywebmvc.service.IUsersService;
+import org.apache.log4j.Logger;
 import org.h2.engine.User;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.core.Authentication;
@@ -15,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.cache.annotation.CacheResult;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -23,6 +26,7 @@ import java.security.Principal;
 @Controller
 public class EmployeeController {
 
+    private final Logger logger = Logger.getLogger(EmployeeController.class.getName());
     @Autowired
     private IEmployeeService IEmployeeService;
 
@@ -33,6 +37,7 @@ public class EmployeeController {
     public String index(Model model) {
         model.addAttribute("person","Jonathan!");
         model.addAttribute("behavior","Programmer");
+        logger.debug("Requesting Index Page");
         return "index";
     }
 
@@ -103,6 +108,7 @@ public class EmployeeController {
         model.addAttribute("employee", IEmployeeService.read(id));
         model.addAttribute("username",curUser);
 
+        logger.info("Accessing Edit Page");
 
         return "empview/manage";
     }
@@ -133,6 +139,7 @@ public class EmployeeController {
     public String report(Model model) {
         model.addAttribute("employee", IEmployeeService.readAll());
 
+        logger.info("Accessing report page");
         return "empview/result";
     }
 
@@ -149,6 +156,8 @@ public class EmployeeController {
             model.addAttribute("role",curRole);
             model.addAttribute("username",curUser);
         }
+
+        logger.error("Denied access!");
 
         return "403";
     }

@@ -5,6 +5,8 @@
     <title>Acccess Denied</title>
 </head>
 <body>
-    Forbidden Access. Please <a th:href="@{/login}">sign in to continue</a>
+    Forbidden Access. Please <a th:href="@{/login}">sign in with admin account</a>
+    <div class="text-info" th:text="'Username : ' + ${username}"></div>
+    <div class="text-info" th:text="'Authority : ' + ${role}"></div>
 </body>
 </html>

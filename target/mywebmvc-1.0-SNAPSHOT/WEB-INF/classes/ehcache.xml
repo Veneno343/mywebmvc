@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ehcache dynamicConfig="true" monitoring="autodetect" updateCheck="true" xsi:noNamespaceSchemaLocation="ehcache.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <diskStore path="java.io.tmpdir"/>
+    <cache transactionalMode="off"
+           memoryStoreEvictionPolicy="LFU"
+           timeToLiveSeconds="600"
+           timeToIdleSeconds="300"
+           eternal="false"
+           maxEntriesLocalDisk="1000"
+           maxEntriesLocalHeap="100"
+           name="employee">
+        <persistence strategy="localTempSwap"/>
+    </cache>
+</ehcache>

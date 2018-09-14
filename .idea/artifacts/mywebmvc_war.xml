@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mywebmvc:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="mywebmvc-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="mywebmvc:war exploded" />
+    </root>
+  </artifact>
+</component>

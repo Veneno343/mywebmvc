@@ -5,11 +5,12 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 /*
  * Base class untuk model Employee
  */
-public class Employee {
+public class Employee implements Serializable {
 
 
     private Integer id;

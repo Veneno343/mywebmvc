@@ -1,13 +1,10 @@
 package com.webmvc.mywebmvc.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
-import javax.servlet.annotation.WebServlet;
 
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -18,7 +15,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] { WebConfiguration.class };
+        return new Class[] { WebAppConfig.class };
     }
 
     @Override
