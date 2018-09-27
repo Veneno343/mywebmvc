@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity security) throws Exception {
-        security.authorizeRequests().antMatchers("/add","/edit/{\\d+}","/report").hasRole("ADMIN")
+        security.authorizeRequests().antMatchers("/addEmp","/editEmp/{\\d+}","/deleteEmp/{\\d+}","/report").hasRole("ADMIN")
                 .and()
                 .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").permitAll()
                 .and()

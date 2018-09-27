@@ -1,6 +1,7 @@
 package com.webmvc.mywebmvc.model;
 
 import javax.annotation.Generated;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -10,9 +11,12 @@ import java.io.Serializable;
 /*
  * Base class untuk model Employee
  */
+@Entity
+@Table(name = "Employee")
 public class Employee implements Serializable {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @NotNull
@@ -27,8 +31,18 @@ public class Employee implements Serializable {
     @NotNull
     @Size(min = 5, max = 25, message = "{employee.city.size}")
     private String city;
-
     private String country;
+
+    public Employee() {
+        super();
+    }
+
+    public Employee(@NotNull @Size(min = 5, max = 35, message = "{employee.name.size}") String name, @NotNull(message = "{employee.age.check}") @Min(value = 20, message = "{employee.age.value}") @Max(value = 40, message = "{employee.age.value}") Integer age, @NotNull @Size(min = 5, max = 25, message = "{employee.city.size}") String city, String country) {
+        this.name = name;
+        this.age = age;
+        this.city = city;
+        this.country = country;
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -69,4 +83,5 @@ public class Employee implements Serializable {
     public String getCountry() {
         return country;
     }
+
 }

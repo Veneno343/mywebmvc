@@ -28,13 +28,13 @@
                         <td><p th:text="${employee.age}"></p></td>
                         <td><p th:text="${employee.city}"></p></td>
                         <td><p th:text="${employee.country}"></p></td>
-                        <td><a th:href="@{/edit/} + ${employee.id}" class="btn btn-warning">Edit</a>&nbsp;
-                            <a onclick="return confirm('Delete selected row?')" th:href="@{/delete/} + ${employee.id}" class="btn btn-danger">Delete</a>
+                        <td><a th:href="@{/editEmp/} + ${employee.id}" class="btn btn-warning">Edit</a>&nbsp;
+                            <a onclick="return confirm('Delete selected row?')" th:href="@{/deleteEmp/} + ${employee.id}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <a th:href="@{/add}" class="btn btn-primary">Add New</a>
+            <a th:href="@{/addEmp}" class="btn btn-primary">Add New</a>
         </div>
     </div>
 </div>

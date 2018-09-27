@@ -15,16 +15,26 @@
             });
         });
     </script>
+    <script src="/webjars/bootstrap/4.1.0/js/bootstrap.bundle.js"></script>
 </head>
 <body>
 <div th:fragment="headerNav">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
         <div class="navbar-header">
-            <a href="#" class="navbar-brand">WebInven</a>
+            <a href="#" class="navbar-brand">HRMS</a>
         </div>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active"><a class="nav-link" th:href="@{/}" th:text="#{lang.nav.home}"></a></li>
-            <li class="nav-item"><a class="nav-link" th:href="@{/add}" th:text="#{lang.nav.manage}"></a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" th:text="#{lang.nav.manage}">
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" th:href="@{/addEmp}" th:text="#{lang.nav.employee}"></a>
+                    <a class="dropdown-item" th:href="@{/addCtr}" th:text="#{lang.nav.contracts}"></a>
+                    <a class="dropdown-item" th:href="@{/addPay}" th:text="#{lang.nav.payroll}"></a>
+                    <a class="dropdown-item" th:href="@{/addIns}" th:text="#{lang.nav.insurance}"></a>
+                </div>
+            </li>
             <li class="nav-item"><a class="nav-link" th:href="@{/report}" th:text="#{lang.nav.report}"></a></li>
         </ul>
         <ul class="navbar-nav ml-auto">

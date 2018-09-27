@@ -88,8 +88,8 @@ public class EmployeeController {
         return "redirect:/login?logout=true";
     }
 
-    @GetMapping("/add")
-    public String add(Model model) {
+    @GetMapping("/addEmp")
+    public String addEmp(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         String curUser = authentication.getName();
@@ -100,8 +100,8 @@ public class EmployeeController {
         return "empview/manage";
     }
 
-    @GetMapping("/edit/{id}")
-    public String edit(@PathVariable int id,Model model) {
+    @GetMapping("/editEmp/{id}")
+    public String editEmp(@PathVariable int id,Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String curUser = authentication.getName();
 
@@ -113,8 +113,8 @@ public class EmployeeController {
         return "empview/manage";
     }
 
-    @PostMapping("/save")
-    public String save(@Valid Employee employee, BindingResult bindingResult) {
+    @PostMapping("/saveEmp")
+    public String saveEmp(@Valid Employee employee, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "empview/manage";
         } else {
@@ -128,8 +128,8 @@ public class EmployeeController {
         }
     }
 
-    @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id) {
+    @GetMapping("/deleteEmp/{id}")
+    public String deleteEmp(@PathVariable int id) {
         IEmployeeService.delete(id);
 
         return "redirect:/report";

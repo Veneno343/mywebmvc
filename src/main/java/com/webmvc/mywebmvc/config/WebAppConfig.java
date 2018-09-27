@@ -1,6 +1,8 @@
 package com.webmvc.mywebmvc.config;
 
 import com.sun.corba.se.spi.resolver.LocalResolver;
+import com.webmvc.mywebmvc.model.Employee;
+import com.webmvc.mywebmvc.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleResolver;
@@ -23,6 +26,7 @@ import java.util.Locale;
 
 @Configuration
 @EnableWebMvc
+@EnableJpaRepositories(basePackageClasses = {EmployeeRepository.class}, entityManagerFactoryRef = "entityManagerFactory")
 @ComponentScan("com.webmvc.mywebmvc")
 public class WebAppConfig implements WebMvcConfigurer {
 	
@@ -99,6 +103,7 @@ public class WebAppConfig implements WebMvcConfigurer {
     }
 
     /*
+
      * Konfigurasi servlet untuk multi-language support
      * Resolver untuk localization dan internationalization
      */
