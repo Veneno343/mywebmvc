@@ -32,7 +32,6 @@ public class WebJPAConfig {
 
         Properties jpaProps = new Properties();
         jpaProps.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
-        jpaProps.put("hibernate.hbm2ddl.auto","create");
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(adapter);
